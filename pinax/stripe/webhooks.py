@@ -437,6 +437,12 @@ class InvoicePaymentSucceededWebhook(InvoiceWebhook):
     description = "Occurs whenever an invoice attempts to be paid, and the payment succeeds."
 
 
+class InvoiceUpcomingWebhook(Webhook):
+    # This one doesn't have an ID, so don't sync anything.
+    name = "invoice.upcoming"
+    description = "Occurs X number of days before a subscription is scheduled to create an invoice that is automatically charged—where X is determined by your subscriptions settings. "
+
+
 class InvoiceUpdatedWebhook(InvoiceWebhook):
     name = "invoice.updated"
     description = "Occurs whenever an invoice changes (for example, the amount could change)."
